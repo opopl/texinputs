@@ -2,10 +2,14 @@
 \newcount\c
 \def\tocNesting#1{%
       \expandafter\ifx \csname level#1\endcsname\relax
+          %\ifnum #1>0 \HCode{<ul class='collapsibleList'>}\fi 
+          \ifnum #1=0 \HCode{<ul onclick='showHide(event)' id='menuTop'>}\fi 
           \ifnum #1>0 \HCode{<ul>}\fi 
           \expandafter\def \csname level#1\endcsname{\HCode{</ul>}}
       \fi
-      \c=#1 \advance\c by 1
+
+	  \c=#1 \advance\c by 1
+
       \loop
 		% Invoke \level$c
         \csname level\the\c\endcsname
