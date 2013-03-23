@@ -1,0 +1,30 @@
+
+%\ConfigureToc{chapter}
+      %{\tocNesting{0}\LI}{ }{}{ }
+
+\def\endLI{\HCode{</li>}}
+\def\endUL{\HCode{</ul>}}
+\def\LI{\HCode{<li>}}
+%\def\ULCL{\HCode{<ul class="collapsibleList">}}
+\def\ULCL{\HCode{<ul>}}
+
+\ConfigureToc{chapter}
+      {\tocNesting{0}\LI}{ }{}{\endLI}
+\ConfigureToc{likechapter}
+      {\tocNesting{0}\LI}{ }{}{\endLI}
+\ConfigureToc{appendix}
+      {\tocNesting{0}\LI}{ }{}{\endLI}
+\ConfigureToc{section}
+      {\tocNesting{1}\LI}{ }{}{\endLI}
+\ConfigureToc{likesection}
+      {\tocNesting{1}\LI}{ }{}{\endLI}
+   \ConfigureToc{subsection}
+      {\tocNesting{2}\LI}{ }{}{\endLI}
+   \ConfigureToc{subsubsection}
+      {\tocNesting{3}\LI}{ }{}{\endLI}
+   \Configure{tableofcontents}
+      {}{\tocNesting{0}}{}{\HCode{<p>}}{\HCode{<p>}}
+
+\input{_def.TocNesting.tex}
+
+
