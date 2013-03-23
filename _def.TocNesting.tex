@@ -1,32 +1,16 @@
-%vim:set ft=plaintex:
-
-
-%\expandafter\ifx\csname HCode\endcsname\relax
-%\expandafter\ifx\csname HCode\endcsname\relax
-	%\def\HCode#1{dsf}
-%\fi
-
-%\newlinechar=`\^^J
-%\def\puts#1{\message{#1 ^^J}}
 
 \newcount\c
 \def\tocNesting#1{%
-	  \def\endUL{\HCode{</ul>}}
       \expandafter\ifx \csname level#1\endcsname\relax
-          %\ifnum #1>0 \HCode{<ul class="collapsibleList">}\fi
-          %\ifnum #1=0 \HCode{<ul class='treeView'>}\fi
-          \ifnum #1>0 \HCode{<ul class='collapsibleList'>}\fi \\
-          %\ifnum #1=0 \HCode{<ul class='collapsibleList'>}\fi \\
-          \expandafter\def \csname level#1\endcsname{\endUL}
+          \ifnum #1>0 \HCode{<ul>}\fi \\
+          \expandafter\def \csname level#1\endcsname{\HCode{</ul>}}
       \fi
       \c=#1 \advance\c by 1
       \loop
 		% Invoke \level$c
         \csname level\the\c\endcsname
-
 		% Empty the \level$c command
         \expandafter\let \csname level\the\c\endcsname\relax
-
 		% $c++
         \advance\c by 1
       \ifnum \c<10   \repeat

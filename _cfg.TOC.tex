@@ -1,11 +1,7 @@
 
-%\ConfigureToc{chapter}
-      %{\tocNesting{0}\LI}{ }{}{ }
-
 \def\endLI{\HCode{</li>}}
 \def\endUL{\HCode{</ul>}}
 \def\LI{\HCode{<li>}}
-%\def\ULCL{\HCode{<ul class="collapsibleList">}}
 \def\ULCL{\HCode{<ul>}}
 
 \ConfigureToc{chapter}
@@ -23,7 +19,7 @@
 \ConfigureToc{subsubsection}
       {\tocNesting{3}\LI}{ }{}{\endLI}
 \Configure{tableofcontents}
-      {}{\tocNesting{0}}{}{\HCode{<p>}}{\HCode{<p>}}
+      {}{\tocNesting{0}}{}{}{}
 
 \input{_def.TocNesting.tex}
 
