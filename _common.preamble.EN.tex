@@ -1,0 +1,39 @@
+\documentclass[a4paper,11pt]{report}
+
+\usepackage[letterpaper,unicode,linktocpage,bookmarksdepth=subparagraph]{hyperref}
+\usepackage{appendix}
+%\usepackage{bookmark}
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[OT1,T2A,T3]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{makeidx}
+\usepackage{my}
+\usepackage{multicol}
+\usepackage[text={7in,9in},centering]{geometry}
+\usepackage{longtable}
+\usepackage{tipa}
+\usepackage{graphicx}
+%%end_usepackage
+
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\newcommand{\ccdash}{"}
+\newcommand{\defis}{-}
+
+\def\booktitle#1{\textbf{#1}}
+
