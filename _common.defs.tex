@@ -1,0 +1,13 @@
+
+\def\ii#1{\input{\PROJ.#1.tex}}
+
+\newif\ifUSEINDEX
+\newif\ifUSETEXHT
+
+\USEINDEXtrue
+
+\ifx\HCode\undefined
+	\USETEXHTfalse
+\else
+	\USETEXHTtrue
+\fi
