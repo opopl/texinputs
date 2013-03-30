@@ -1,0 +1,26 @@
+
+%> \Configure{tabular}
+%>  {at the start of table}
+%>  {at the end of table}
+%>  {at the beginning of row}
+%>  {at the end of row}
+%>  {before each cell}
+%>  {after each cell}
+
+\Configure{tabular}
+{\HCode{<table width="100\%" cellspacing="3" cellpadding="3"
+border="2">}}
+{\HCode{</table>}}
+{\HCode{<tr style="background-color:\rowcolor">}}
+{\HCode{</tr>}}
+%{\HCode{<td  align="left"
+{\HCode{<td width="50\%" align="justify" valign="top"
+\ifnum \HMultispan>1 colspan="\HMultispan"\fi >}}
+{\HCode{</td>}}
+
+%The following is for alternate background colors for rows and unique
+%color first row.
+
+%\def\rowcolor{\ifnum\HRow=1
+%\#aaaaff;\else\ifodd\HRow\#f0f0f0;\else\#fdeded;\fi\fi}
+\def\rowcolor{\ifodd\HRow\#f0f0f0;\else\#fdeded;\fi}

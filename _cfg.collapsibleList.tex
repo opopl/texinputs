@@ -6,19 +6,19 @@
    %<script type="text/javascript">
 		 %OnloadScheduler.schedule(function(){ CollapsibleLists.apply(); });
    %</script>
-%  <style>
-    %\#menuTop,\#menuTop ul{cursor:default;list-style-type:circle}
-    %\#menuTop .m{list-style-type:disc}
-    %\#menuTop ul{display:none}
-  %</style>
-   <script type="text/javascript">
-   function showHide(ev){
-     ev=ev||window.event
-     var elem=(ev.target||ev.srcElement).getElementsByTagName("UL")[0]
-     if(!elem)return;
-     elem=elem.style;
-     elem.display=(elem.display!='block')?'block':'none'
-   }
+%%  <style>
+    %%\#menuTop,\#menuTop ul{cursor:default;list-style-type:circle}
+    %%\#menuTop .m{list-style-type:disc}
+    %%\#menuTop ul{display:none}
+  %%</style>
+   %<script type="text/javascript">
+   %function showHide(ev){
+     %ev=ev||window.event
+     %var elem=(ev.target||ev.srcElement).getElementsByTagName("UL")[0]
+     %if(!elem)return;
+     %elem=elem.style;
+     %elem.display=(elem.display!='block')?'block':'none'
+   %}
    </script>
    </head>
 }}
