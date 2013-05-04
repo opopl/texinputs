@@ -2,7 +2,11 @@
 
 \usepackage[letterpaper,unicode,linktocpage,bookmarksdepth=subparagraph]{hyperref}
 \usepackage{appendix}
-%\usepackage{bookmark}
+
+\ifx\HCode\undefined\else
+	\usepackage{bookmark}
+\fi
+
 \usepackage{mathtext}                 % підключення кирилиці у математичних формулах
                                           % (mathtext.sty входить в пакет t2).
 \usepackage[OT1,T2A,T3]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
