@@ -2,6 +2,13 @@
 \def\ii#1{\input{\PROJ.#1.tex}}
 \def\iif#1{\input{\PROJ/#1.tex}}
 
+\def\dirpics{pics/\PROJ}
+
+\def\bibi#1#2{%
+  \bibliographystyle{#1}%
+  \bibliography{\PROJ.#2}%
+}%
+
 \newif\ifUSEINDEX
 \newif\ifUSETEXHT
 
