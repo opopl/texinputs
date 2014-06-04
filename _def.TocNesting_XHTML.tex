@@ -1,4 +1,4 @@
-   \def\tocNesting#1{%
+\def\tocNesting#1{%
       \expandafter\ifx \csname level#1\endcsname\relax
           \ifnum #1>0 \HCode{<ul>}\fi
           \expandafter\def \csname level#1\endcsname{\HCode{</li></ul>}}

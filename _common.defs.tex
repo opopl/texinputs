@@ -1,6 +1,43 @@
 
-\def\ii#1{\input{\PROJ.#1.tex}}
+\newif\ifUSETEXHT
+
+\ifx\HCode\undefined
+	\USETEXHTfalse
+\else
+	\USETEXHTtrue
+\fi
+
+\def\TEXHT#1#2{%
+	\ifUSETEXHT%
+		#1%
+	\else
+		#2%
+	\fi%
+}%
+
+\def\icfg#1{\input{_cfg.#1.tex}}
+
+\def\ii#1{\InputIfFileExists{\PROJ.#1.tex}{}{}}
 \def\iif#1{\input{\PROJ/#1.tex}}
+
+\newenvironment{emphasize}{%
+	\TEXHT{\HCode{<em>}}{\begingroup\em}%
+	}{%
+	\TEXHT{\HCode{</em>}}{\endgroup\rm}}% 
+
+\def\iibmk#1{%
+	\hypertarget{#1}{}%
+	\bookmark[level=2,dest=#1,]{#1}%
+	\ii{#1}%
+}%
+
+\def\iproj#1#2{%
+	\def\OLDPROJ{}%
+	\let\OLDPROJ=\PROJ%
+	\let\PROJ=#1%
+	\input{\PROJ.#2.tex}%
+	\let\PROJ=\OLDPROJ%
+}%%
 
 \def\dirpics{pics/\PROJ}
 
@@ -10,12 +47,7 @@
 }%
 
 \newif\ifUSEINDEX
-\newif\ifUSETEXHT
 
 \USEINDEXtrue
 
-\ifx\HCode\undefined
-	\USETEXHTfalse
-\else
-	\USETEXHTtrue
-\fi
+
