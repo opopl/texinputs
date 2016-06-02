@@ -1,0 +1,70 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{projs}
+
+\RequirePackage{ifthen}
+\RequirePackage{xargs}
+\RequirePackage{fancybox}
+
+\def\isec#1#2{\section{#2}\label{#1}}
+\def\isubsec#1#2{\subsection{#2}\label{#1}}
+\def\isubsubsec#1#2{\subsubsection{#2}\label{#1}}
+\def\ipar#1#2{\paragraph{#2}\label{#1}}
+
+\def\ifig#1{\includegraphics{pics/\PROJ/fig#1.png}}
+
+\def\ig#1{\includegraphics{pics/\PROJ/#1}}
+
+\def\indexitem#1{\item{#1}\index{#1}}
+
+% partial derivative
+\def\ParDer#1#2{\left( \frac{\partial #1}{\partial #2} \right)}
+\def\ParDerC#1#2#3{\ParDer{#1}{#2}_{#3}}
+
+\def\PrjPic#1{%
+	\includegraphics{pics/\PROJ/#1}%
+}
+
+\def\PrjPicW#1#2{%
+	\includegraphics[width=#2\textwidth]{pics/\PROJ/#1}%
+}
+
+\def\bibi#1#2{%
+
+  \clearpage%
+  \phantomsection%
+  \hypertarget{biblio}{}%
+  %
+  \addcontentsline{toc}{\ProjRootSec}{\bibname}%
+
+  \bibliographystyle{#1}%
+  \bibliography{\PROJ.#2}%
+}%
+
+\def\iproj#1#2{%
+	\def\OLDPROJ{}%
+	\let\OLDPROJ=\PROJ%
+	\let\PROJ=#1%
+	\input{\PROJ.#2.tex}%
+	\let\PROJ=\OLDPROJ%
+}%%
+
+\def\dirpics{pics/\PROJ}
+
+\def\iif#1{\input{\PROJ/#1.tex}}
+
+
+\def\eqnum#1{\renewcommand{\theequation}{#1}}
+\def\eqlab#1{\eqnum{#1}\label{eq:#1}}
+
+\def\secnum#1{\renewcommand{\thesection}{#1}}
+
+\@ifpackageloaded{bookmark}{%
+	\def\bmk#1#2{ \bookmark[#1]{#2} }
+}{
+	\def\bmk#1#2{}
+}
+
+\newenvironment{fminipage}%
+{\begin{Sbox}\begin{minipage}}%
+  {\end{minipage}\end{Sbox}\shadowbox{\TheSbox}} 
