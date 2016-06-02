@@ -21,6 +21,13 @@ border="2">}}
 %The following is for alternate background colors for rows and unique
 %color first row.
 
-%\def\rowcolor{\ifnum\HRow=1
-%\#aaaaff;\else\ifodd\HRow\#f0f0f0;\else\#fdeded;\fi\fi}
-\def\rowcolor{\ifodd\HRow\#f0f0f0;\else\#fdeded;\fi}
+\def\rowcolor{
+	\ifnum\HRow=1\#aaaaff;
+	\else
+		\ifodd\HRow\#f0f0f0;
+		\else\#fdeded;
+		\fi
+	\fi
+}
+
+%\def\rowcolor{\ifodd\HRow\#f0f0f0;\else\#fdeded;\fi}
